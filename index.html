@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bug Bounty Report</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="assets/css/style.css" />
+</head>
+
+<body>
+    <div class="container mt-5">
+        <h1 class="text-center text-white">Bug Bounty Reporting</h1>
+        <h2 class="text-center text-white">Generator</h2>
+        <div class="row">
+            <div class="col-md-3"></div>
+            <div class="col-md-6">
+                <div class="card">
+                    <div class="card-body">
+                        <div class="mb-3">
+                            <label for="" class="form-label">Your Name</label>
+                            <input type="text" id="yn" class="form-control" required />
+                        </div>
+                        <div class="mb-3">
+                            <label for="" class="form-label">Program Name / Institute</label>
+                            <input type="text" id="pn" class="form-control" required />
+                        </div>
+                        <div class="mb-3">
+                            <label for="" class="form-label">Link Website</label>
+                            <input type="text" id="lw" class="form-control" required />
+                        </div>
+                        <div class="mb-3">
+                            <label for="" class="form-label">Bug</label>
+                            <select id="bug" class="form-control" required>
+                                <option value="SQL Injection">SQL Injection</option>
+                                <!-- <option value="XSS">XSS</option> -->
+                                <!-- <option value="Directory listing">Directory listing</option> -->
+                                <option value="other">Other</option>
+                            </select>
+                        </div>
+                        <div id="other">
+                            <div class="mb-3">
+                                <label for="" class="form-label">Bug Other</label>
+                                <input type="text" id="bugo" class="form-control" placeholder="CVE-****-****" />
+                            </div>
+                            <div class="mb-3">
+                                <label for="">Remediation</label>
+                                <textarea name="" id="remediation" class="form-control"></textarea>
+                            </div>
+                            <div class="mb-3">
+                                <label for="">Refrences</label>
+                                <textarea name="" id="refrences" class="form-control"></textarea>
+                            </div>
+                            <div class="mb-3">
+                                <label for="">Impact</label>
+                                <textarea name="" id="impact" class="form-control"></textarea>
+                            </div>
+                            <div class="mb-3">
+                                <label for="">Severity</label>
+                                <input type="text" name="" id="severity" class="form-control">
+                            </div>
+                            <!-- remediation
+                            refrences
+                            impact
+                            severity -->
+                        </div>
+                        <div class="mb-3">
+                            <label for="" class="form-label">Poc</label>
+                            <textarea id="poc" cols="30" rows="10" class="form-control"></textarea>
+                        </div>
+                        <div class="mb-3">
+                            <label for="" class="form-label">Email Institute (optional)</label>
+                            <input type="email" id="email" class="form-control" />
+                        </div>
+                        <div class="d-grid gap-2">
+                            <button type="button" class="btn btn-primary" id="generate">Generate</button>
+                            <a href="" id="send" class="mailtoui btn btn-success">Send Email</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/mailtoui@1.0.3/dist/mailtoui-min.js"></script>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="assets/js/template.js"></script>
+    <script src="assets/js/style.js"></script>
+</body>
+
+</html>
