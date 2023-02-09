@@ -2,6 +2,7 @@ $(document).ready(function () {
   let template = templates;
   $("#send").addClass("disabled");
   $("#send").attr("href", "#");
+  $("#other").hide();
 
   function generateTemplates() {
     let name = $("#yn").val();
@@ -60,8 +61,6 @@ $(document).ready(function () {
     }
   }
 
-  $("#other").hide();
-
   $("#bug").on("change", function () {
     let value = $(this).val();
     if (value == "other") {
@@ -76,19 +75,5 @@ $(document).ready(function () {
     generateTemplates();
     toastr.success("Copy to clipboard");
     navigator.clipboard.writeText($("#temp").val());
-  });
-
-  $("#send").on("click", function () {
-    // generateTemplates();
-    // let bugs = $("#bugo").val() || $("#bug option:selected").val();
-    // let linkWebsite = $("#lw").val();
-    // let to = $("#email").val();
-    // if (to == "") {
-    //   alert("Please enter an email address");
-    //   return;
-    // }
-    // window.open = `mailto:${encodeURIComponent(
-    //   to
-    // )}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
   });
 });
