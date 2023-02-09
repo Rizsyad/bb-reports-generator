@@ -41,6 +41,8 @@ $(document).ready(function () {
       template_informations?.[bugs]?.severity || severity
     );
 
+    $("#temp").val(template);
+
     let to = $("#email").val();
     let subject = `vulnerability ${bugs} on ${linkWebsite}`;
 
@@ -72,6 +74,8 @@ $(document).ready(function () {
 
   $("#generate").on("click", function () {
     generateTemplates();
+    toastr.success("Copy to clipboard");
+    navigator.clipboard.writeText($("#temp").val());
   });
 
   $("#send").on("click", function () {
