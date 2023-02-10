@@ -20,7 +20,7 @@ My name {{name}} and i founded this vulnerability in your website.
 {{impact}}
 
 <b>Refrences:</b>
-{{refrences}}
+{{references}}
 
 
 Best regards,

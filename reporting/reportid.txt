@@ -20,7 +20,7 @@ Nama saya {{name}} dan saya menemukan kerentanan ini di situs web Anda.
 {{impact}}
 
 <b>Referensi:</b>
-{{refrences}}
+{{references}}
 
 
 Salam,
