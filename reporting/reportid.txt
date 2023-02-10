@@ -1,0 +1,28 @@
+Halo tim {{program}},
+Nama saya {{name}} dan saya menemukan kerentanan ini di situs web Anda.
+
+<b>Kerentanan: {{bugs}} di {{website}}</b>
+{{report}}
+
+<b>tingkat keparahan:</b>
+{{severity}}
+
+<b>Deskripsi:</b>
+{{description}}
+
+<b>Perbaiki:</b>
+{{remediation}}
+
+<b>POC:</b>
+{{poc}}
+
+<b>Dampak:</b>
+{{impect}}
+
+<b>Referensi:</b>
+{{refrences}}
+
+
+Salam,
+Terima kasih atas waktunya.
+{{name}}

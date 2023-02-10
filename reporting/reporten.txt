@@ -1,0 +1,28 @@
+Hello {{program}} team,
+My name {{name}} and i founded this vulnerability in your website.
+
+<b>Vulnerability: {{bugs}} on {{website}}</b>
+{{report}}
+
+<b>Severity Rate:</b>
+{{severity}}
+
+<b>Description:</b>
+{{description}}
+
+<b>Fix:</b>
+{{remediation}}
+
+<b>POC:</b>
+{{poc}}
+
+<b>Impect:</b>
+{{impect}}
+
+<b>Refrences:</b>
+{{refrences}}
+
+
+Best regards,
+Thanks for your time.
+{{name}}
