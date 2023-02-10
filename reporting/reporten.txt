@@ -17,7 +17,7 @@ My name {{name}} and i founded this vulnerability in your website.
 {{poc}}
 
 <b>Impect:</b>
-{{impect}}
+{{impact}}
 
 <b>Refrences:</b>
 {{refrences}}

@@ -1,11 +1,11 @@
 {
-  "templates": "Hello {{program}} team,\nMy name {{name}} and i founded this vulnerability in your website.\n\n<b><u>Vulnerability: {{bugs}} on {{website}}</u></b>\n{{report}}\n\n<b>Severity Rate:</b>\n{{severity}}\n\n<b>Description:</b>\n{{description}}\n\n<b>Fix:</b>\n{{remediation}}\n\n<b>POC:</b>\n{{poc}}\n\n<b>Impect:</b>\n{{impect}}\n\n<b>Refrences:</b>\n{{refrences}}\n\n\nBest regards,\nThanks for your time.\n{{name}}",
+  "templates": "Hello {{program}} team,\nMy name {{name}} and i founded this vulnerability in your website.\n\n<b><u>Vulnerability: {{bugs}} on {{website}}</u></b>\n{{report}}\n\n<b>Severity Rate:</b>\n{{severity}}\n\n<b>Description:</b>\n{{description}}\n\n<b>Fix:</b>\n{{remediation}}\n\n<b>POC:</b>\n{{poc}}\n\n<b>Impect:</b>\n{{impact}}\n\n<b>Refrences:</b>\n{{refrences}}\n\n\nBest regards,\nThanks for your time.\n{{name}}",
   "SQL Injection": {
     "subject": "[BUG BOUNTY REPORT] SQL Injection",
     "description": "SQL injection, also known as SQLI, is a common attack vector that uses malicious SQL code for backend database manipulation to access information that was not intended to be displayed.",
     "remediation": "* Use of Prepared Statements (with Parameterized Queries) \n* Use of Properly Constructed Stored Procedures \n* Allow-list Input Validation",
     "refrences": "* https://portswigger.net/web-security/sql-injection \n* https://www.acunetix.com/websitesecurity/sql-injection \n* https://cheatsheetseries.owasp.org/cheatsheets/SQL_Injection_Prevention_Cheat_Sheet.html ",
-    "impect": "unauthorized viewing of user lists, the deletion of entire tables and, in certain cases, the attacker gaining administrative rights to a database",
+    "impact": "unauthorized viewing of user lists, the deletion of entire tables and, in certain cases, the attacker gaining administrative rights to a database",
     "severity": "High"
   },
   "XSS": {
@@ -13,7 +13,7 @@
     "description": "Cross-site scripting (also known as XSS) is a web security vulnerability that allows an attacker to compromise the interactions that users have with a vulnerable application. It allows an attacker to circumvent the same origin policy, which is designed to segregate different websites from each other. Cross-site scripting vulnerabilities normally allow an attacker to masquerade as a victim user, to carry out any actions that the user is able to perform, and to access any of the user's data. If the victim user has privileged access within the application, then the attacker might be able to gain full control over all of the application's functionality and data.",
     "remediation": "* Applications must validate data input to the web application from user browsers.\n* All output from the web application to user browsers must be encoded.\n* Users must have the option to disable client-site scripts.\n",
     "refrences": "* https://crashtest-security.com/xss-attack-prevention \n* https://www.veracode.com/security/xss \n",
-    "impect": "When attackers succeed in exploiting XSS vulnerabilities, they can gain access to account credentials. They can also spread web worms or access the user’s computer and view the user’s browser history or control the browser remotely. After gaining control to the victim’s system, attackers can also analyze and use other intranet applications.",
+    "impact": "When attackers succeed in exploiting XSS vulnerabilities, they can gain access to account credentials. They can also spread web worms or access the user’s computer and view the user’s browser history or control the browser remotely. After gaining control to the victim’s system, attackers can also analyze and use other intranet applications.",
     "severity": "High"
   }
 }

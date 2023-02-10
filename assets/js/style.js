@@ -19,7 +19,7 @@ $(document).ready(function () {
     let poc = $("#poc").val();
     let remediationC = $("#remediation").val();
     let refrencesC = $("#refrences").val();
-    let impectC = $("#impect").val();
+    let impactC = $("#impact").val();
     let severityC = $("#severity").val();
     let descriptionC = $("#description").val();
     let language = $("#lang").val();
@@ -28,7 +28,7 @@ $(document).ready(function () {
     const reporting = await getDataJSON(language);
     let template = reporting.templates;
 
-    const { description, remediation, refrences, impect, severity, subject } =
+    const { description, remediation, refrences, impact, severity, subject } =
       reporting?.[bugs] || {};
 
     template = template.replace(new RegExp("{{name}}", "g"), name);
@@ -40,7 +40,7 @@ $(document).ready(function () {
     template = template.replace("{{description}}", description || descriptionC);
     template = template.replace("{{remediation}}", remediation || remediationC);
     template = template.replace("{{refrences}}", refrences || refrencesC);
-    template = template.replace("{{impect}}", impect || impectC);
+    template = template.replace("{{impact}}", impact || impactC);
     template = template.replace("{{severity}}", severity || severityC);
     $("#temp").val(template);
 

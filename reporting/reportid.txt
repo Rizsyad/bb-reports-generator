@@ -17,7 +17,7 @@ Nama saya {{name}} dan saya menemukan kerentanan ini di situs web Anda.
 {{poc}}
 
 <b>Dampak:</b>
-{{impect}}
+{{impact}}
 
 <b>Referensi:</b>
 {{refrences}}

@@ -1,11 +1,11 @@
 {
-  "templates": "Halo tim {{program}},\nNama saya {{name}} dan saya menemukan kerentanan ini di situs web Anda.\n\n<b><u>Kerentanan: {{bugs}} di {{website}}</u></b>\n{{report}}\n\n<b>tingkat keparahan:</b>\n{{severity}}\n\n<b>Deskripsi:</b>\n{{description}}\n\n<b>Perbaiki:</b>\n{{remediation}}\n\n<b>POC:</b>\n{{poc}}\n\n<b>Dampak:</b>\n{{impect}}\n\n<b>Referensi:</b>\n{{refrences}}\n\n\nSalam,\nTerima kasih atas waktunya.\n{{name}}",
+  "templates": "Halo tim {{program}},\nNama saya {{name}} dan saya menemukan kerentanan ini di situs web Anda.\n\n<b><u>Kerentanan: {{bugs}} di {{website}}</u></b>\n{{report}}\n\n<b>tingkat keparahan:</b>\n{{severity}}\n\n<b>Deskripsi:</b>\n{{description}}\n\n<b>Perbaiki:</b>\n{{remediation}}\n\n<b>POC:</b>\n{{poc}}\n\n<b>Dampak:</b>\n{{impact}}\n\n<b>Referensi:</b>\n{{refrences}}\n\n\nSalam,\nTerima kasih atas waktunya.\n{{name}}",
   "SQL Injection": {
     "subject": "[BUG BOUNTY REPORT] SQL Injection",
     "description": "SQL injection, juga dikenal sebagai SQLI, adalah vektor serangan umum yang menggunakan kode SQL berbahaya untuk manipulasi basis data backend untuk mengakses informasi yang tidak dimaksudkan untuk ditampilkan.",
     "remediation": "* Penggunaan Pernyataan yang Disiapkan (dengan Kueri Parameterisasi) \n* Penggunaan Prosedur Tersimpan yang Dibangun dengan Benar \n* Validasi Input Daftar Izinkan",
     "refrences": "* https://portswigger.net/web-security/sql-injection \n* https://www.acunetix.com/websitesecurity/sql-injection \n* https://cheatsheetseries.owasp.org/cheatsheets/SQL_Injection_Prevention_Cheat_Sheet.html",
-    "impect": "tampilan daftar pengguna yang tidak sah, penghapusan seluruh tabel dan, dalam kasus tertentu, penyerang mendapatkan hak administratif ke database",
+    "impact": "tampilan daftar pengguna yang tidak sah, penghapusan seluruh tabel dan, dalam kasus tertentu, penyerang mendapatkan hak administratif ke database",
     "severity": "High"
   },
   "XSS": {
@@ -13,7 +13,7 @@
     "description": "Cross-site scripting (juga dikenal sebagai XSS) adalah kerentanan keamanan web yang memungkinkan penyerang mengkompromikan interaksi yang dimiliki pengguna dengan aplikasi yang rentan. Ini memungkinkan penyerang untuk menghindari kebijakan asal yang sama, yang dirancang untuk memisahkan situs web yang berbeda satu sama lain. Kerentanan Cross-site scripting biasanya memungkinkan penyerang menyamar sebagai pengguna korban, melakukan tindakan apa pun yang dapat dilakukan pengguna, dan mengakses data pengguna mana pun. Jika pengguna korban memiliki akses istimewa di dalam aplikasi, penyerang mungkin dapat memperoleh kontrol penuh atas semua fungsi dan data aplikasi.",
     "remediation": "* Aplikasi harus memvalidasi input data ke aplikasi web dari browser pengguna.\n* Semua output dari aplikasi web ke browser pengguna harus dikodekan.\n* Pengguna harus memiliki opsi untuk menonaktifkan skrip situs klien.\n",
     "refrences": "* https://crashtest-security.com/xss-attack-prevention \n* https://www.veracode.com/security/xss \n",
-    "impect": "Saat penyerang berhasil mengeksploitasi kerentanan XSS, mereka dapat memperoleh akses ke kredensial akun. Mereka juga dapat menyebarkan worm web atau mengakses komputer pengguna dan melihat riwayat browser pengguna atau mengontrol browser dari jarak jauh. Setelah menguasai sistem korban, penyerang juga dapat menganalisis dan menggunakan aplikasi intranet lainnya.",
+    "impact": "Saat penyerang berhasil mengeksploitasi kerentanan XSS, mereka dapat memperoleh akses ke kredensial akun. Mereka juga dapat menyebarkan worm web atau mengakses komputer pengguna dan melihat riwayat browser pengguna atau mengontrol browser dari jarak jauh. Setelah menguasai sistem korban, penyerang juga dapat menganalisis dan menggunakan aplikasi intranet lainnya.",
     "severity": "High"
   }
 }
