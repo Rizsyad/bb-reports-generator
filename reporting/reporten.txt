@@ -1,7 +1,7 @@
 Hello {{program}} team,
 My name {{name}} and i founded this vulnerability in your website.
 
-<b>Vulnerability: {{bugs}} on {{website}}</b>
+<b><u>Vulnerability: {{bugs}} on {{website}}</u></b>
 {{report}}
 
 <b>Severity Rate:</b>

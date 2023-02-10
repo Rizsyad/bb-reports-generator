@@ -1,7 +1,7 @@
 Halo tim {{program}},
 Nama saya {{name}} dan saya menemukan kerentanan ini di situs web Anda.
 
-<b>Kerentanan: {{bugs}} di {{website}}</b>
+<b><u>Kerentanan: {{bugs}} di {{website}}</u></b>
 {{report}}
 
 <b>tingkat keparahan:</b>

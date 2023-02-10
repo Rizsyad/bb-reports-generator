@@ -1,5 +1,5 @@
 {
-  "templates": "Halo tim {{program}},\nNama saya {{name}} dan saya menemukan kerentanan ini di situs web Anda.\n\n<b>Kerentanan: {{bugs}} di {{website}}</b>\n{{report}}\n\n<b>tingkat keparahan:</b>\n{{severity}}\n\n<b>Deskripsi:</b>\n{{description}}\n\n<b>Perbaiki:</b>\n{{remediation}}\n\n<b>POC:</b>\n{{poc}}\n\n<b>Dampak:</b>\n{{impect}}\n\n<b>Referensi:</b>\n{{refrences}}\n\n\nSalam,\nTerima kasih atas waktunya.\n{{name}}",
+  "templates": "Halo tim {{program}},\nNama saya {{name}} dan saya menemukan kerentanan ini di situs web Anda.\n\n<b><u>Kerentanan: {{bugs}} di {{website}}</u></b>\n{{report}}\n\n<b>tingkat keparahan:</b>\n{{severity}}\n\n<b>Deskripsi:</b>\n{{description}}\n\n<b>Perbaiki:</b>\n{{remediation}}\n\n<b>POC:</b>\n{{poc}}\n\n<b>Dampak:</b>\n{{impect}}\n\n<b>Referensi:</b>\n{{refrences}}\n\n\nSalam,\nTerima kasih atas waktunya.\n{{name}}",
   "SQL Injection": {
     "subject": "[BUG BOUNTY REPORT] SQL Injection",
     "description": "SQL injection, juga dikenal sebagai SQLI, adalah vektor serangan umum yang menggunakan kode SQL berbahaya untuk manipulasi basis data backend untuk mengakses informasi yang tidak dimaksudkan untuk ditampilkan.",
