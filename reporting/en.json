@@ -1,5 +1,5 @@
 {
-  "templates": "Hello {{program}} team,\nMy name {{name}} and i founded this vulnerability in your website.\n\n<b><u>Vulnerability: {{bugs}} on {{website}}</u></b>\n{{report}}\n\n<b>Severity Rate:</b>\n{{severity}}\n\n<b>Description:</b>\n{{description}}\n\n<b>Fix:</b>\n{{remediation}}\n\n<b>POC:</b>\n{{poc}}\n\n<b>Impect:</b>\n{{impact}}\n\n<b>Refrences:</b>\n{{refrences}}\n\n\nBest regards,\nThanks for your time.\n{{name}}",
+  "templates": "Hello {{program}} team,\nMy name {{name}} and i founded this vulnerability in your website.\n\n<b><u>Vulnerability: {{bugs}} on {{website}}</u></b>\n{{report}}\n\n<b>Severity Rate:</b>\n{{severity}}\n\n<b>Description:</b>\n{{description}}\n\n<b>Fix:</b>\n{{remediation}}\n\n<b>POC:</b>\n{{poc}}\n\n<b>Impact:</b>\n{{impact}}\n\n<b>Refrences:</b>\n{{refrences}}\n\n\nBest regards,\nThanks for your time.\n{{name}}",
   "SQL Injection": {
     "subject": "[BUG BOUNTY REPORT] SQL Injection",
     "description": "SQL injection, also known as SQLI, is a common attack vector that uses malicious SQL code for backend database manipulation to access information that was not intended to be displayed.",
