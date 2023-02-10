@@ -1,5 +1,5 @@
 {
-  "templates": "Hello {{program}} team,\nMy name {{name}} and i founded this vulnerability in your website.\n\n<b><u>Vulnerability: {{bugs}} on {{website}}</u></b>\n{{report}}\n\n<b>Severity Rate:</b>\n{{severity}}\n\n<b>Description:</b>\n{{description}}\n\n<b>Fix:</b>\n{{remediation}}\n\n<b>POC:</b>\n{{poc}}\n\n<b>Impact:</b>\n{{impact}}\n\n<b>Refrences:</b>\n{{references}}\n\n\nBest regards,\nThanks for your time.\n{{name}}",
+  "templates": "Hello {{program}} team,\nMy name {{name}} and i founded this vulnerability in your website.\n\n<b><u>Vulnerability: {{bugs}} on {{website}}</u></b>\n{{report}}\n\n<b>Severity Rate:</b>\n{{severity}}\n\n<b>Description:</b>\n{{description}}\n\n<b>Fix:</b>\n{{remediation}}\n\n<b>POC:</b>\n{{poc}}\n\n<b>Impact:</b>\n{{impact}}\n\n<b>References:</b>\n{{references}}\n\n\nBest regards,\nThanks for your time.\n{{name}}",
   "SQL Injection": {
     "subject": "[BUG BOUNTY REPORT] SQL Injection",
     "description": "SQL injection, also known as SQLI, is a common attack vector that uses malicious SQL code for backend database manipulation to access information that was not intended to be displayed.",
@@ -15,5 +15,37 @@
     "references": "* https://crashtest-security.com/xss-attack-prevention \n* https://www.veracode.com/security/xss \n",
     "impact": "When attackers succeed in exploiting XSS vulnerabilities, they can gain access to account credentials. They can also spread web worms or access the user’s computer and view the user’s browser history or control the browser remotely. After gaining control to the victim’s system, attackers can also analyze and use other intranet applications.",
     "severity": "High"
+  },
+  "Click Jacking": {
+    "subject": "[BUG BOUNTY REPORT] Click Jacking",
+    "description": "Clickjacking is an attack that tricks a user into clicking a webpage element which is invisible or disguised as another element. This can cause users to unwittingly download malware, visit malicious web pages, provide credentials or sensitive information, transfer money, or purchase products online. \n \nTypically, clickjacking is performed by displaying an invisible page or HTML element, inside an iframe, on top of the page the user sees. The user believes they are clicking the visible page but in fact they are clicking an invisible element in the additional page transposed on top of it.",
+    "remediation": "* Sending the proper Content Security Policy (CSP) frame-ancestors directive response headers that instruct the browser to not allow framing from other domains. The older X-Frame-Options HTTP headers is used for graceful degradation and older browser compatibility. \n* Properly setting authentication cookies with SameSite=Strict (or Lax), unless they explicitly need None (which is rare). \n* Employing defensive code in the UI to ensure that the current frame is the most top level window",
+    "references": "* https://www.imperva.com/learn/application-security/clickjacking/ \n* https://owasp.org/www-community/attacks/Clickjacking \n* https://www.forcepoint.com/cyber-edu/clickjacking",
+    "impact": "The user assumes that they're entering their information into a usual form but they're actually entering it in fields the hacker has overlaid on the UI.",
+    "severity": "Low to High"
+  },
+  "Open Redirect": {
+    "subject": "[BUG BOUNTY REPORT] Open Redirect",
+    "description": "An open redirect vulnerability occurs when an application allows a user to control a redirect or forward to another URL.",
+    "remediation": "* Remove the redirection function from the application, and replace links to it with direct links to the relevant target URLs. \n* Maintain a server-side list of all URLs that are permitted for redirection. Instead of passing the target URL as a parameter to the redirector, pass an index into this list.",
+    "references": "* https://learn.snyk.io/lessons/open-redirect/javascript/ \n* https://portswigger.net/kb/issues/00500100_open-redirection-reflected \n* https://brightsec.com/blog/open-redirect-vulnerabilities/",
+    "impact": "Open redirection attacks are most commonly used to support phishing attacks, or redirect users to malicious websites.",
+    "severity": "Low"
+  },
+  "IDOR": {
+    "subject": "[BUG BOUNTY REPORT] Insecure Direct Object References",
+    "description": "Insecure direct object references (IDOR) are a type of access control vulnerability that arises when an application uses user-supplied input to access objects directly. The term IDOR was popularized by its appearance in the OWASP 2007 Top Ten. However, it is just one example of many access control implementation mistakes that can lead to access controls being circumvented. IDOR vulnerabilities are most commonly associated with horizontal privilege escalation, but they can also arise in relation to vertical privilege escalation.",
+    "remediation": "* Developers should avoid displaying private object references such as keys or file names. \n* Validation of Parameters should be properly implemented. \n* Verification of all the Referenced objects should be done. \n* Tokens should be generated in such a way that they should only be mapped to the user and should not be public. \n* Use random identifiers so that it will be a little bit hard to guess for attackers.  \n* Validation of user input should be properly implemented.",
+    "references": "* https://portswigger.net/web-security/access-control/idor \n* https://www.geeksforgeeks.org/insecure-direct-object-reference-idor-vulnerability/ \n",
+    "impact": "The impact of an insecure direct object reference vulnerability depends very much on the application’s functionality. Therefore, a clear list can not be easily given. Generally speaking, an IDOR vulnerability can introduce a risk for CIA (confidentiality, integrity, availability) of data.",
+    "severity": "Informational / Low / Medium / High / Critical‍"
+  },
+  "Directory Listing": {
+    "subject": "[BUG BOUNTY REPORT] Directory Listing",
+    "description": "Directory Listing is a type of Web page that lists files and directories that exist on a Web server.",
+    "remediation": "* Configure your web server to prevent directory listings for all paths beneath the web root \n* Place into each directory a default file (such as index.html) that the web server will display instead of returning a directory listing. \n",
+    "references": "* https://portswigger.net/kb/issues/00600100_directory-listing \n* https://cwe.mitre.org/data/definitions/548.html",
+    "impact": "Exposing the contents of a directory can lead to an attacker gaining access to source code or providing useful information for the attacker to devise exploits, such as creation times of files or any information that may be encoded in file names. The directory listing may also compromise private or confidential data.",
+    "severity": "Information"
   }
 }

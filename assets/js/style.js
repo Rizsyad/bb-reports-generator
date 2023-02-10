@@ -10,6 +10,28 @@ $(document).ready(function () {
     return json;
   };
 
+  const dynamicBug = async () => {
+    const data = await getDataJSON("en");
+    delete data["templates"];
+
+    $("#bug").append('<option value="">Select a bug</option>');
+
+    // console.log(Object.keys(data));
+    Object.keys(data).forEach(function (key) {
+      // const value = jsonData[key];
+      $("#bug").append(
+        $("<option>:first", {
+          value: key,
+          text: key,
+        })
+      );
+    });
+    $("#bug").append('<option value="other">Other</option>');
+    $("option[value='']").attr("selected", true);
+  };
+
+  dynamicBug();
+
   const generateTemplates = async () => {
     let name = $("#yn").val();
     let program = $("#pn").val();
@@ -30,8 +52,6 @@ $(document).ready(function () {
 
     const { description, remediation, references, impact, severity, subject } =
       reporting?.[bugs] || {};
-
-    console.log(references);
 
     template = template.replace(new RegExp("{{name}}", "g"), name);
     template = template.replace("{{program}}", program);
