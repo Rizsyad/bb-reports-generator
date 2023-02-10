@@ -21,6 +21,7 @@ $(document).ready(function () {
     let refrencesC = $("#refrences").val();
     let impectC = $("#impect").val();
     let severityC = $("#severity").val();
+    let descriptionC = $("#description").val();
     let language = $("#lang").val();
     let to = $("#email").val();
 
@@ -28,7 +29,7 @@ $(document).ready(function () {
     let template = reporting.templates;
 
     const { description, remediation, refrences, impect, severity, subject } =
-      reporting?.[bugs];
+      reporting?.[bugs] || {};
 
     template = template.replace(new RegExp("{{name}}", "g"), name);
     template = template.replace("{{program}}", program);
@@ -36,7 +37,7 @@ $(document).ready(function () {
     template = template.replace(new RegExp("{{bugs}}", "g"), bugs);
     template = template.replace("{{poc}}", poc);
     template = template.replace("{{report}}", report);
-    template = template.replace("{{description}}", description);
+    template = template.replace("{{description}}", description || descriptionC);
     template = template.replace("{{remediation}}", remediation || remediationC);
     template = template.replace("{{refrences}}", refrences || refrencesC);
     template = template.replace("{{impect}}", impect || impectC);
