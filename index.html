@@ -7,7 +7,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Bug Bounty Report</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" />
-    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/css/toastr.min.css">
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/css/toastr.min.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.20/summernote-bs5.min.css" />
     <link rel="stylesheet" href="assets/css/style.css" />
     <link rel="shortcut icon"
         href="https://assets-global.website-files.com/5a710f54ead1240001eb5bd5/5e4ff64c70768931d0efb674_bug%20bounty.png"
@@ -15,28 +16,55 @@
 </head>
 
 <body>
-    <div class="container mt-5 mb-5">
-        <h1 class="text-center text-white">Bug Bounty Report</h1>
-        <h2 class="text-center text-white">Generator</h2>
-        <div class="row">
-            <div class="col-md-3"></div>
-            <div class="col-md-6">
-                <div class="card">
-                    <div class="card-body">
-                        <div class="mb-3">
-                            <label for="" class="form-label">Your Name</label>
-                            <input type="text" id="yn" class="form-control" required />
+    <div class="p-5 bg-wallpaper text-white text-center img-fluid">
+        <div class="d-flex flex-column align-items-center mt-5 my-sm-1">
+            <h1 class="fw-bold judul">Bug Bounty <br> Report Generator</h1>
+            <p></p>
+        </div>
+    </div>
+    <div class="container min-mt-1 mb-5">
+        <div class="card">
+
+            <div class="card-body shadow-lg">
+                <h1 class="text-center " style="letter-spacing: 5px;">Report Information</h1>
+                <hr />
+
+                <div class="container">
+
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="mb-3">
+                                <label for="" class="form-label">Your Name</label>
+                                <input type="text" id="yn" class="form-control" placeholder="Your Name" />
+                            </div>
+                            <div class="mb-3">
+                                <label for="" class="form-label">Email Institute (for send email)</label>
+                                <input type="email" id="email" class="form-control" />
+                            </div>
+                            <div class="mb-3">
+                                <label for="" class="form-label">Poc</label>
+                                <textarea id="poc" cols="30" rows="10" class="form-control"></textarea>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="mb-3">
+                                <label for="" class="form-label">Program Name / Institute</label>
+                                <input type="text" id="pn" class="form-control" placeholder="Program Name / Institute"
+                                    required />
+                            </div>
+                            <div class="mb-3">
+                                <label for="" class="form-label">Domain Website Vuln</label>
+                                <input type="text" id="lw" class="form-control" placeholder="Ex. google.com" />
+                            </div>
+                            <div class="mb-3">
+                                <label for="" class="form-label">Report</label>
+                                <textarea id="report" cols="30" rows="10" class="form-control"
+                                    placeholder="say whatever you know..."></textarea>
+                            </div>
+
                         </div>
                         <div class="mb-3">
-                            <label for="" class="form-label">Program Name / Institute</label>
-                            <input type="text" id="pn" class="form-control" required />
-                        </div>
-                        <div class="mb-3">
-                            <label for="" class="form-label">Domain Website Vuln</label>
-                            <input type="text" id="lw" class="form-control" required />
-                        </div>
-                        <div class="mb-3">
-                            <label for="" class="form-label">Bug</label>
+                            <label for="" class="form-label">Bug Name</label>
                             <select id="bug" class="form-control" required>
                             </select>
                         </div>
@@ -46,38 +74,25 @@
                                 <input type="text" id="bugo" class="form-control" placeholder="CVE-****-****" />
                             </div>
                             <div class="mb-3">
-                                <label for="">Description Bugs</label>
+                                <label for="" class="form-label">Description Bugs</label>
                                 <textarea id="description" class="form-control"></textarea>
                             </div>
                             <div class="mb-3">
-                                <label for="">Remediation</label>
+                                <label for="" class="form-label">Remediation</label>
                                 <textarea id="remediation" class="form-control"></textarea>
                             </div>
                             <div class="mb-3">
-                                <label for="">References</label>
+                                <label for="" class="form-label">References</label>
                                 <textarea id="references" class="form-control"></textarea>
                             </div>
                             <div class="mb-3">
-                                <label for="">impact</label>
+                                <label for="" class="form-label">impact</label>
                                 <textarea id="impact" class="form-control"></textarea>
                             </div>
                             <div class="mb-3">
-                                <label for="">Severity</label>
+                                <label for="" class="form-label">Severity</label>
                                 <input type="text" id="severity" class="form-control">
                             </div>
-                        </div>
-                        <div class="mb-3">
-                            <label for="" class="form-label">Report</label>
-                            <textarea id="report" cols="30" rows="10" class="form-control"
-                                placeholder="say whatever you know..."></textarea>
-                        </div>
-                        <div class="mb-3">
-                            <label for="" class="form-label">Poc</label>
-                            <textarea id="poc" cols="30" rows="10" class="form-control"></textarea>
-                        </div>
-                        <div class="mb-3">
-                            <label for="" class="form-label">Email Institute (optional)</label>
-                            <input type="email" id="email" class="form-control" />
                         </div>
                         <div class="mb-3">
                             <label for="" class="form-label">Language Reporting</label>
@@ -86,15 +101,20 @@
                                 <option value="id">Indonesian</option>
                             </select>
                         </div>
+                        <div class="row">
+                            <div class="col-md-6 d-grid my-3"><button type="button" id="generate"
+                                    class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#modalGenerator">
+                                    Generate
+                                </button></div>
+                            <div class="col-md-6 d-grid my-3">
+                                <a href="" id="send" class="mailtoui btn btn-success">Send Email</a>
+                            </div>
 
-                        <div class="d-grid gap-2">
-                            <button type="button" id="generate" class="btn btn-primary" data-bs-toggle="modal"
-                                data-bs-target="#modalGenerator">
-                                Generate
-                            </button>
-                            <a href="" id="send" class="mailtoui btn btn-success">Send Email</a>
+
                         </div>
                     </div>
+
+
                 </div>
             </div>
         </div>
@@ -110,6 +130,7 @@
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
+                    <div id="view" class="d-none"></div>
                     <textarea id="temp" cols="30" rows="10" class="form-control"></textarea>
                 </div>
                 <div class="modal-footer">
@@ -120,10 +141,13 @@
         </div>
     </div>
 
+
+
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/mailtoui@1.0.3/dist/mailtoui-min.js"></script>
     <script src="//cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/js/toastr.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.20/summernote-bs5.min.js"></script>
     <script src="assets/js/style.js"></script>
 </body>
 

@@ -1,3 +1,16 @@
-body {
-  background-color: #0c1220;
+.bg-wallpaper {
+  background: url("https://files.cyberhub.sa/public/uploads/GiXD-EUprnLeZJKXOhWyAdoC7_vLeV")
+    no-repeat center center;
+  -webkit-background-size: 100% 150%;
+  -moz-background-size: 100% 150%;
+  -o-background-size: 100% 150%;
+  background-size: 100% 150%;
+}
+
+.judul {
+  letter-spacing: 10px;
+}
+
+.min-mt-1 {
+  margin-top: -3rem;
 }

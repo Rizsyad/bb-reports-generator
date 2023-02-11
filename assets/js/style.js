@@ -2,6 +2,16 @@ $(document).ready(function () {
   $("#send").addClass("disabled");
   $("#send").attr("href", "#");
   $("#other").hide();
+  $("textarea").summernote({
+    tabsize: 2,
+    height: 300,
+    toolbar: [
+      ["style", ["bold", "italic", "underline", "clear"]],
+
+      ["insert", ["link", "picture", "video"]],
+      ["view", ["fullscreen", "codeview", "help"]],
+    ],
+  });
 
   const getDataJSON = async (fileName) => {
     const fileJSON = `reporting/${fileName}.json`;
@@ -16,9 +26,7 @@ $(document).ready(function () {
 
     $("#bug").append('<option value="">Select a bug</option>');
 
-    // console.log(Object.keys(data));
     Object.keys(data).forEach(function (key) {
-      // const value = jsonData[key];
       $("#bug").append(
         $("<option>:first", {
           value: key,
@@ -37,13 +45,13 @@ $(document).ready(function () {
     let program = $("#pn").val();
     let linkWebsite = $("#lw").val();
     let bugs = $("#bugo").val() || $("#bug option:selected").val();
-    let report = $("#report").val();
-    let poc = $("#poc").val();
-    let remediationC = $("#remediation").val();
-    let referencesC = $("#references").val();
-    let impactC = $("#impact").val();
-    let severityC = $("#severity").val();
-    let descriptionC = $("#description").val();
+    let report = $("#report").summernote("code");
+    let poc = $("#poc").summernote("code");
+    let remediationC = $("#remediation").summernote("code");
+    let referencesC = $("#references").summernote("code");
+    let impactC = $("#impact").summernote("code");
+    let severityC = $("#severity").summernote("code");
+    let descriptionC = $("#description").summernote("code");
     let language = $("#lang").val();
     let to = $("#email").val();
 
@@ -64,7 +72,10 @@ $(document).ready(function () {
     template = template.replace("{{references}}", references || referencesC);
     template = template.replace("{{impact}}", impact || impactC);
     template = template.replace("{{severity}}", severity || severityC);
-    $("#temp").val(template);
+    $("#temp").summernote(
+      "code",
+      template.replace(new RegExp("\n", "g"), "<br />")
+    );
 
     if (to == "") {
       $("#send").addClass("disabled");
@@ -75,7 +86,7 @@ $(document).ready(function () {
         "href",
         `mailto:${to}?subject=${encodeURIComponent(
           subject
-        )}&body=${encodeURIComponent(template)}`
+        )}&body=${encodeURIComponent("paste it")}`
       );
     }
   };
@@ -96,6 +107,18 @@ $(document).ready(function () {
 
   $("#copy").on("click", function () {
     toastr.success("Copy to clipboard");
-    navigator.clipboard.writeText($("#temp").val());
+
+    const $temp = $("<div>");
+    $("body").append($temp);
+    $temp
+      .attr("contenteditable", true)
+      .html($("#temp").val().replace(new RegExp("\n", "g"), "<br/ >"))
+      .select()
+      .on("focus", function () {
+        document.execCommand("selectAll", false, null);
+      })
+      .focus();
+    document.execCommand("copy");
+    $temp.remove();
   });
 });
