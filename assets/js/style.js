@@ -40,6 +40,16 @@ $(document).ready(function () {
 
   dynamicBug();
 
+  const getCveData = async (cveid) => {
+    const isCVE = cveid.slice(0, 3).toUpperCase() == "CVE";
+    if (!isCVE) cveid = `CVE-${cveid}`;
+
+    const fileJSON = `https://api.cvesearch.com/search?q=${cveid}`;
+    const response = await fetch(fileJSON);
+    const json = await response.json();
+    return json.response[cveid.toLowerCase()];
+  };
+
   const generateTemplates = async () => {
     let name = $("#yn").val();
     let program = $("#pn").val();
@@ -50,7 +60,7 @@ $(document).ready(function () {
     let remediationC = $("#remediation").summernote("code");
     let referencesC = $("#references").summernote("code");
     let impactC = $("#impact").summernote("code");
-    let severityC = $("#severity").summernote("code");
+    let severityC = $("#severity").val();
     let descriptionC = $("#description").summernote("code");
     let language = $("#lang").val();
     let to = $("#email").val();
@@ -85,7 +95,7 @@ $(document).ready(function () {
       $("#send").attr(
         "href",
         `mailto:${to}?subject=${encodeURIComponent(
-          subject
+          subject || `[BUG BOUNTY REPORT] ${bugs}`
         )}&body=${encodeURIComponent("paste it")}`
       );
     }
@@ -99,6 +109,22 @@ $(document).ready(function () {
     }
     $("#other").css("display", "none");
     $("#bugo").val("");
+  });
+
+  $("#bugo").on("keypress", async function (e) {
+    const key = e.which;
+    if (key == 13) {
+      const dataCVE = await getCveData($("#bugo").val());
+
+      $("#references").summernote(
+        "code",
+        "* " + dataCVE?.references.join("<br/> * ") || ""
+      );
+      $("#severity").val(dataCVE?.details?.severity || "");
+      $("#description").summernote("code", dataCVE?.basic?.description || "");
+
+      return;
+    }
   });
 
   $("#generate").on("click", function () {
