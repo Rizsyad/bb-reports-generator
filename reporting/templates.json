@@ -7,11 +7,45 @@
       "https://cheatsheetseries.owasp.org/cheatsheets/SQL_Injection_Prevention_Cheat_Sheet.html"
     ]
   },
-  "XSS": {
-    "subject": "[BUG BOUNTY REPORT] Cross Site Scripting",
+  "DOM XSS": {
+    "subject": "[BUG BOUNTY REPORT] DOM Cross Site Scripting",
     "references": [
-      "https://crashtest-security.com/xss-attack-prevention",
-      "https://www.veracode.com/security/xss"
+      "https://portswigger.net/web-security/cross-site-scripting/dom-based",
+      "https://owasp.org/www-community/attacks/DOM_Based_XSS",
+      "https://www.acunetix.com/blog/articles/dom-xss-explained/"
+      
+    ]
+  },
+  "Reflected XSS": {
+    "subject": "[BUG BOUNTY REPORT] Reflected Cross Site Scripting",
+    "references": [
+      "https://portswigger.net/web-security/cross-site-scripting/reflected",
+      "https://www.imperva.com/learn/application-security/reflected-xss-attacks/",
+      "https://owasp.org/www-community/attacks/xss/"
+    ]
+  },
+  "Stored XSS": {
+    "subject": "[BUG BOUNTY REPORT] Stored Cross Site Scripting",
+    "references": [
+      "https://portswigger.net/web-security/cross-site-scripting/stored",
+      "https://www.invicti.com/learn/stored-xss-persistent-cross-site-scripting/",
+      "https://owasp.org/www-community/attacks/xss/"
+    ]
+  },
+  "Self XSS": {
+    "subject": "[BUG BOUNTY REPORT] Self Cross Site Scripting",
+    "references": [
+      "https://shieldfy.io/security-wiki/cross-site-scripting/self-xss/",
+      "https://www.netspi.com/blog/technical/web-application-penetration-testing/weaponizing-self-xss/",
+      "https://owasp.org/www-community/attacks/xss/"
+    ]
+  },
+  "Blind XSS": {
+    "subject": "[BUG BOUNTY REPORT] Blind Cross Site Scripting",
+    "references": [
+      "https://www.invicti.com/learn/blind-cross-site-scripting/",
+      "https://owasp.org/www-community/attacks/xss/",
+      "https://www.geeksforgeeks.org/understanding-blind-xss-for-bug-bounty-hunting/"
     ]
   },
   "Click Jacking": {
