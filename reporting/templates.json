@@ -1,0 +1,68 @@
+{
+  "SQL Injection": {
+    "subject": "[BUG BOUNTY REPORT] SQL Injection",
+    "references": [
+      "https://portswigger.net/web-security/sql-injection",
+      "https://www.acunetix.com/websitesecurity/sql-injection",
+      "https://cheatsheetseries.owasp.org/cheatsheets/SQL_Injection_Prevention_Cheat_Sheet.html"
+    ]
+  },
+  "XSS": {
+    "subject": "[BUG BOUNTY REPORT] Cross Site Scripting",
+    "references": [
+      "https://crashtest-security.com/xss-attack-prevention",
+      "https://www.veracode.com/security/xss"
+    ]
+  },
+  "Click Jacking": {
+    "subject": "[BUG BOUNTY REPORT] Click Jacking",
+    "references": [
+      "https://www.imperva.com/learn/application-security/clickjacking",
+      "https://owasp.org/www-community/attacks/Clickjacking",
+      "https://www.forcepoint.com/cyber-edu/clickjacking"
+    ]
+  },
+  "Open Redirect": {
+    "subject": "[BUG BOUNTY REPORT] Open Redirect",
+    "references": [
+      "https://learn.snyk.io/lessons/open-redirect/javascript",
+      "https://portswigger.net/kb/issues/00500100_open-redirection-reflected",
+      "https://brightsec.com/blog/open-redirect-vulnerabilities/"
+    ]
+  },
+  "IDOR": {
+    "subject": "[BUG BOUNTY REPORT] Insecure Direct Object References",
+    "references": [
+      "https://portswigger.net/web-security/access-control/idor",
+      "https://www.geeksforgeeks.org/insecure-direct-object-reference-idor-vulnerability"
+    ]
+  },
+  "Directory Listing": {
+    "subject": "[BUG BOUNTY REPORT] Directory Listing",
+    "references": [
+      "https://portswigger.net/kb/issues/00600100_directory-listing",
+      "https://cwe.mitre.org/data/definitions/548.html"
+    ]
+  },
+  "Information Disclosure": {
+    "subject": "[BUG BOUNTY REPORT] Information disclosure",
+    "references": [
+      "https://portswigger.net/web-security/information-disclosure",
+      "https://knowledge-base.secureflag.com/vulnerabilities/sensitive_information_exposure/sensitive_information_disclosure_vulnerability.html#prevention"
+    ]
+  },
+  "Local File Inclusion": {
+    "subject": "[BUG BOUNTY REPORT] Local File Inclusion",
+    "references": [
+      "https://owasp.org/www-project-web-security-testing-guide/v42/4-Web_Application_Security_Testing/07-Input_Validation_Testing/11.1-Testing_for_Local_File_Inclusion",
+      "https://www.invicti.com/web-vulnerability-scanner/vulnerabilities/local-file-inclusion"
+    ]
+  },
+  "CSRF": {
+    "subject": "[BUG BOUNTY REPORT] Cross-site request forgery",
+    "references": [
+      "https://owasp.org/www-community/attacks/csrf",
+      "https://portswigger.net/web-security/csrf"
+    ]
+  }
+}

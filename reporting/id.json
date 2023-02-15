@@ -1,51 +1,96 @@
 {
   "templates": "Halo tim {{program}},\nNama saya {{name}} dan saya menemukan kerentanan ini di situs web Anda.\n\n<b><u>Kerentanan: {{bugs}} di {{website}}</u></b>\n{{report}}\n\n<b>tingkat keparahan:</b>\n{{severity}}\n\n<b>Deskripsi:</b>\n{{description}}\n\n<b>Perbaiki:</b>\n{{remediation}}\n\n<b>POC:</b>\n{{poc}}\n\n<b>Dampak:</b>\n{{impact}}\n\n<b>Referensi:</b>\n{{references}}\n\n\nSalam,\nTerima kasih atas waktunya.\n{{name}}",
   "SQL Injection": {
-    "subject": "[BUG BOUNTY REPORT] SQL Injection",
     "description": "SQL injection, juga dikenal sebagai SQLI, adalah vektor serangan umum yang menggunakan kode SQL berbahaya untuk manipulasi basis data backend untuk mengakses informasi yang tidak dimaksudkan untuk ditampilkan.",
-    "remediation": "* Penggunaan Pernyataan yang Disiapkan (dengan Kueri Parameterisasi) \n* Penggunaan Prosedur Tersimpan yang Dibangun dengan Benar \n* Validasi Input Daftar Izinkan",
-    "references": "* https://portswigger.net/web-security/sql-injection \n* https://www.acunetix.com/websitesecurity/sql-injection \n* https://cheatsheetseries.owasp.org/cheatsheets/SQL_Injection_Prevention_Cheat_Sheet.html",
+    "remediation": [
+      "Penggunaan Pernyataan yang Disiapkan (dengan Kueri Parameterisasi)",
+      "Validasi Input daftar yang diizinkan"
+    ],
     "impact": "tampilan daftar pengguna yang tidak sah, penghapusan seluruh tabel dan, dalam kasus tertentu, penyerang mendapatkan hak administratif ke database",
-    "severity": "High"
+    "severity": "Tinggi"
   },
   "XSS": {
-    "subject": "[BUG BOUNTY REPORT] Cross Site Scripting",
     "description": "Cross-site scripting (juga dikenal sebagai XSS) adalah kerentanan keamanan web yang memungkinkan penyerang mengkompromikan interaksi yang dimiliki pengguna dengan aplikasi yang rentan. Ini memungkinkan penyerang untuk menghindari kebijakan asal yang sama, yang dirancang untuk memisahkan situs web yang berbeda satu sama lain. Kerentanan Cross-site scripting biasanya memungkinkan penyerang menyamar sebagai pengguna korban, melakukan tindakan apa pun yang dapat dilakukan pengguna, dan mengakses data pengguna mana pun. Jika pengguna korban memiliki akses istimewa di dalam aplikasi, penyerang mungkin dapat memperoleh kontrol penuh atas semua fungsi dan data aplikasi.",
-    "remediation": "* Aplikasi harus memvalidasi input data ke aplikasi web dari browser pengguna.\n* Semua output dari aplikasi web ke browser pengguna harus dikodekan.\n* Pengguna harus memiliki opsi untuk menonaktifkan skrip situs klien.\n",
-    "references": "* https://crashtest-security.com/xss-attack-prevention \n* https://www.veracode.com/security/xss \n",
+    "remediation": [
+      "Aplikasi harus memvalidasi input data ke aplikasi web dari browser pengguna.",
+      "Semua output dari aplikasi web ke browser pengguna harus dikodekan.",
+      "Pengguna harus memiliki opsi untuk menonaktifkan skrip situs klien."
+    ],
     "impact": "Saat penyerang berhasil mengeksploitasi kerentanan XSS, mereka dapat memperoleh akses ke kredensial akun. Mereka juga dapat menyebarkan worm web atau mengakses komputer pengguna dan melihat riwayat browser pengguna atau mengontrol browser dari jarak jauh. Setelah menguasai sistem korban, penyerang juga dapat menganalisis dan menggunakan aplikasi intranet lainnya.",
-    "severity": "High"
+    "severity": "Tinggi"
   },
   "Click Jacking": {
-    "subject": "[BUG BOUNTY REPORT] Click Jacking",
     "description": "Clickjacking adalah serangan yang mengelabui pengguna agar mengeklik elemen laman web yang tidak terlihat atau disamarkan sebagai elemen lain. Ini dapat menyebabkan pengguna tanpa sadar mengunduh malware, mengunjungi halaman web berbahaya, memberikan kredensial atau informasi sensitif, mentransfer uang, atau membeli produk secara online. \n \nBiasanya, clickjacking dilakukan dengan menampilkan halaman tak terlihat atau elemen HTML, di dalam iframe, di atas halaman yang dilihat pengguna. Pengguna percaya bahwa mereka mengklik halaman yang terlihat tetapi sebenarnya mereka mengklik elemen yang tidak terlihat di halaman tambahan yang dialihkan di atasnya.",
-    "remediation": "* Mengirim header respons direktif nenek moyang Kebijakan Keamanan Konten (CSP) yang tepat yang menginstruksikan browser untuk tidak mengizinkan pembingkaian dari domain lain. Header HTTP X-Frame-Options yang lebih lama digunakan untuk degradasi yang anggun dan kompatibilitas browser yang lebih lama. \n* Menyetel cookie autentikasi dengan benar dengan SameSite=Strict (atau Lax), kecuali mereka secara eksplisit membutuhkan Tidak Ada (yang jarang terjadi). \n* Mempekerjakan kode defensif di UI untuk memastikan bahwa frame saat ini adalah jendela tingkat paling atas",
-    "references": "* https://www.imperva.com/learn/application-security/clickjacking/ \n* https://owasp.org/www-community/attacks/Clickjacking \n* https://www.forcepoint.com/cyber-edu/clickjacking",
+    "remediation": [
+      "Mengirim header respons direktif frame-ancestor Kebijakan Keamanan Konten (CSP) yang tepat yang menginstruksikan browser untuk tidak mengizinkan pembingkaian dari domain lain. Header HTTP X-Frame-Options yang lebih lama digunakan untuk degradasi yang anggun dan kompatibilitas browser yang lebih lama.",
+      "Menyetel kuki autentikasi dengan benar dengan SameSite=Strict (atau Lax), kecuali mereka secara eksplisit membutuhkan Tidak Ada (yang jarang terjadi).",
+      "Mempekerjakan kode defensif di UI untuk memastikan bahwa bingkai saat ini adalah jendela tingkat paling atas"
+    ],
     "impact": "Pengguna berasumsi bahwa mereka memasukkan informasi mereka ke dalam bentuk biasa tetapi sebenarnya mereka memasukkannya di bidang yang telah dihamparkan oleh peretas di UI.",
     "severity": "Rendah ke tinggi"
   },
   "Open Redirect": {
-    "subject": "[BUG BOUNTY REPORT] Open Redirect",
     "description": "Kerentanan Open Redirect terjadi saat aplikasi memungkinkan pengguna untuk mengontrol pengalihan atau meneruskan ke URL lain.",
-    "remediation": "* Hapus fungsi pengalihan dari aplikasi, dan ganti tautan ke sana dengan tautan langsung ke URL target yang relevan. \n* Pertahankan daftar sisi server dari semua URL yang diizinkan untuk pengalihan. Alih-alih mengirimkan URL target sebagai parameter ke redirector, berikan indeks ke daftar ini.",
-    "references": "* https://learn.snyk.io/lessons/open-redirect/javascript/ \n* https://portswigger.net/kb/issues/00500100_open-redirection-reflected \n* https://brightsec.com/blog/open-redirect-vulnerabilities/",
+    "remediation": [
+      "Hapus fungsi pengalihan dari aplikasi, dan ganti tautan ke sana dengan tautan langsung ke URL target yang relevan.",
+      "Pertahankan daftar sisi server dari semua URL yang diizinkan untuk pengalihan. Alih-alih meneruskan URL target sebagai parameter ke pengalih, berikan indeks ke daftar ini."
+    ],
     "impact": "Serangan Open Redirect paling sering digunakan untuk mendukung serangan phishing, atau mengalihkan pengguna ke situs web berbahaya.",
     "severity": "Rendah"
   },
   "IDOR": {
-    "subject": "[BUG BOUNTY REPORT] Insecure Direct Object References",
     "description": "Insecure direct object references (IDOR) adalah jenis kerentanan kontrol akses yang muncul saat aplikasi menggunakan input yang disediakan pengguna untuk mengakses objek secara langsung. Istilah IDOR dipopulerkan dengan kemunculannya di OWASP 2007 Top Ten. Namun, ini hanyalah salah satu contoh dari banyak kesalahan penerapan kontrol akses yang dapat menyebabkan kontrol akses dielakkan. Kerentanan IDOR paling sering dikaitkan dengan eskalasi hak istimewa horizontal, tetapi juga dapat muncul sehubungan dengan eskalasi hak istimewa vertikal.",
-    "remediation": "* Pengembang harus menghindari menampilkan referensi objek pribadi seperti kunci atau nama file. \n* Validasi Parameter harus diterapkan dengan benar. \n* Verifikasi semua objek yang Direferensikan harus dilakukan. \n* Token harus dibuat sedemikian rupa sehingga hanya dapat dipetakan ke pengguna dan tidak boleh publik. \n* Gunakan pengenal acak sehingga akan sedikit sulit ditebak oleh penyerang. \n* Validasi input pengguna harus diterapkan dengan benar.",
-    "references": "* https://portswigger.net/web-security/access-control/idor \n* https://www.geeksforgeeks.org/insecure-direct-object-reference-idor-vulnerability/ \n",
+    "remediation": [
+      "Pengembang harus menghindari menampilkan referensi objek pribadi seperti kunci atau nama file.",
+      "Validasi Parameter harus diterapkan dengan benar.",
+      "Verifikasi semua objek yang Direferensikan harus dilakukan.",
+      "Token harus dibuat sedemikian rupa sehingga hanya dapat dipetakan ke pengguna dan tidak boleh untuk publik.",
+      "Gunakan pengidentifikasi acak sehingga akan sedikit sulit ditebak oleh penyerang.",
+      "Validasi input pengguna harus diterapkan dengan benar."
+    ],
     "impact": "Dampak kerentanan referensi objek langsung yang tidak aman sangat bergantung pada fungsionalitas aplikasi. Oleh karena itu, daftar yang jelas tidak dapat diberikan dengan mudah. Secara umum, kerentanan IDOR dapat menimbulkan risiko untuk CIA (kerahasiaan, integritas, ketersediaan) data.",
     "severity": "Informasi / Rendah / Sedang / Tinggi / Kritis‍"
   },
   "Directory Listing": {
-    "subject": "[BUG BOUNTY REPORT] Directory listing",
     "description": "Directory listing adalah jenis halaman Web yang mencantumkan file dan direktori yang ada di server Web.",
-    "remediation": "* Konfigurasikan server web Anda untuk mencegah daftar direktori untuk semua jalur di bawah web root \n* Tempatkan ke setiap direktori file default (seperti index.html) yang akan ditampilkan server web alih-alih mengembalikan daftar direktori.",
-    "references": "* https://portswigger.net/kb/issues/00600100_directory-listing \n* https://cwe.mitre.org/data/definitions/548.html",
+    "remediation": [
+      "Konfigurasi server web Anda untuk mencegah daftar direktori untuk semua jalur di bawah akar web",
+      "Tempatkan ke setiap direktori file default (seperti index.html) yang akan ditampilkan server web alih-alih mengembalikan daftar direktori."
+    ],
     "impact": "Mengekspos konten direktori dapat menyebabkan penyerang mendapatkan akses ke kode sumber atau memberikan informasi yang berguna bagi penyerang untuk merencanakan eksploitasi, seperti waktu pembuatan file atau informasi apa pun yang mungkin dikodekan dalam nama file. Daftar direktori juga dapat membahayakan data pribadi atau rahasia.",
     "severity": "Informasi"
+  },
+  "Information Disclosure": {
+    "description": "Information Disclosure, juga dikenal sebagai kebocoran informasi, adalah saat situs web secara tidak sengaja mengungkapkan informasi sensitif kepada penggunanya.",
+    "remediation": [
+      "Pengembang harus terlebih dahulu mengidentifikasi data mana yang sensitif sesuai dengan arsitektur sistem dan persyaratan peraturan.",
+      "Pengembang harus memastikan data dalam transit atau penyimpanan dienkripsi.",
+      "Pengembang harus menghapus fungsi debugging dan pengujian dari aplikasi dan sistem produksi.",
+      "Pengembang harus meninjau item yang terdaftar untuk menentukan apakah ada kebutuhan bisnis yang dapat dibenarkan untuk memiliki setiap item yang ada. Semua barang yang dianggap tidak perlu harus disingkirkan.",
+      "Prosedur pembuatan aplikasi/sistem yang ditentukan harus mencakup langkah-langkah untuk menghapus file dan fitur yang tidak diperlukan untuk penerapan produksi, dan proses dan kontrol keamanan internal harus mengonfirmasi bahwa ini telah terjadi sebelum rilis produksi."
+    ],
+    "impact": "Skala dampak dari peristiwa Pengungkapan Informasi Sensitif hanya dibatasi oleh jenis informasi sensitif yang diungkapkan dan kemampuan pelaku jahat untuk memanfaatkannya.",
+    "severity": "Tinggi"
+  },
+  "Local File Inclusion": {
+    "description": "Local File Inclusion (juga dikenal sebagai LFI) adalah proses penyertaan file, yang sudah ada secara lokal di server, melalui pemanfaatan prosedur penyertaan rentan yang diterapkan dalam aplikasi.",
+    "remediation": [
+      "Jika memungkinkan, jangan izinkan jalur file ditambahkan secara langsung. Jadikan itu hard-coded atau dapat dipilih dari daftar jalur hard-coded terbatas melalui variabel indeks.",
+      "Jika Anda benar-benar membutuhkan penggabungan jalur dinamis, pastikan Anda hanya menerima karakter yang diperlukan seperti \"a-Z0-9\" dan jangan izinkan \"..\" atau \"/\" atau \"%00\" ( null byte) atau karakter tak terduga serupa lainnya.",
+      "Penting untuk membatasi API untuk memungkinkan penyertaan hanya dari direktori dan direktori di bawahnya.",
+      "Ini memastikan bahwa setiap serangan potensial tidak dapat melakukan serangan traversal direktori."
+    ],
+    "impact": "Dampak dari serangan Local File Inclusion dapat bervariasi berdasarkan eksploitasi dan izin baca dari pengguna server web.",
+    "severity": "Tinggi"
+  },
+  "CSRF": {
+    "description": "Cross-Site Request Forgery (CSRF) adalah serangan yang memaksa pengguna akhir untuk melakukan tindakan yang tidak diinginkan pada aplikasi web",
+    "remediation": [
+      "tambahkan token yang tidak dapat diprediksi di setiap permintaan.",
+      "tambahkan captcha.",
+      "minta konfirmasi pengguna sebelum melakukan tindakan apa pun."
+    ],
+    "impact": "penyerang menyebabkan pengguna korban melakukan tindakan secara tidak sengaja.",
+    "severity": "Sedang hingga Tinggi"
   }
 }

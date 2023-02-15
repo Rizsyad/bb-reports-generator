@@ -66,10 +66,14 @@ $(document).ready(function () {
     let to = $("#email").val();
 
     const reporting = await getDataJSON(language);
+    const reff = await getDataJSON("templates");
+
     let template = reporting.templates;
 
-    const { description, remediation, references, impact, severity, subject } =
+    const { description, remediation, impact, severity } =
       reporting?.[bugs] || {};
+
+    let { references, subject } = reff?.[bugs] || {};
 
     template = template.replace(new RegExp("{{name}}", "g"), name);
     template = template.replace("{{program}}", program);
@@ -78,8 +82,14 @@ $(document).ready(function () {
     template = template.replace("{{poc}}", poc);
     template = template.replace("{{report}}", report);
     template = template.replace("{{description}}", description || descriptionC);
-    template = template.replace("{{remediation}}", remediation || remediationC);
-    template = template.replace("{{references}}", references || referencesC);
+    template = template.replace(
+      "{{remediation}}",
+      "* " + remediation.join("<br/> * ") || remediationC
+    );
+    template = template.replace(
+      "{{references}}",
+      "* " + references.join("<br/> * ") || referencesC
+    );
     template = template.replace("{{impact}}", impact || impactC);
     template = template.replace("{{severity}}", severity || severityC);
     $("#temp").summernote(
